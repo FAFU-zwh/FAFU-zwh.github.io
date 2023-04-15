@@ -22,6 +22,7 @@ and open the template in the editor.
         padding: 0;
         margin: 0;
         height: 96%;
+        width: 100%;
       }
       #header{
         height:4%;
@@ -33,6 +34,7 @@ and open the template in the editor.
       }
       #basemapGalleryDiv{
         height: 100%;
+        width: 100%;
       }
       #optionsDiv {
       background-color: white;
@@ -103,7 +105,7 @@ and open the template in the editor.
           //添加图例
           view: view
         });
-        view.ui.add(legend, "bottom-left");
+        view.ui.add(legend, "bottom-right");
 
         let scaleBar = new ScaleBar({          //比例尺
           view: view,
@@ -143,7 +145,7 @@ and open the template in the editor.
           content: layerList,
           expanded:false
         });
-        view.ui.add(layerListExpand, {position:"bottom-right"});
+        view.ui.add(layerListExpand, {position:"top-left"});
         
        let measurementWidget = new DistanceMeasurement2D({  //2D测量
          view: view
@@ -154,7 +156,7 @@ and open the template in the editor.
           content: measurementWidget,
           expanded:false
         });
-        view.ui.add(measurementWidgetExpand, {position:"bottom-right"}); 
+        view.ui.add(measurementWidgetExpand, {position:"top-left"}); 
       
     //搜索
         view.ui.add("optionsDiv", "top-right");
@@ -258,7 +260,7 @@ and open the template in the editor.
           content: editor,
           expanded:false
         });
-        view.ui.add(editorExpand, {position:"bottom-right"});
+        view.ui.add(editorExpand, {position:"top-left"});
        
       });
     </script>
@@ -270,7 +272,13 @@ and open the template in the editor.
     <div id="basemapGalleryDiv"></div>
     <div id="optionsDiv" class="esri-widget">
       <p>
-        Select a query type and click a point on the map to view the results.
+        查询：请选择查询类型
+      </p>
+      <p>
+        查询类型1：Basic Query，地图上单击的点以查看结果。
+      </p>
+      <p>
+        查询类型2：Query By Distance，在地图上单击一个点，查询点周围1公里内的要素。
       </p>
       <select id="query-type" class="esri-widget">
         <option value="basic">Basic Query</option>
@@ -279,4 +287,3 @@ and open the template in the editor.
     </div>
   </body>
 </html>
-
